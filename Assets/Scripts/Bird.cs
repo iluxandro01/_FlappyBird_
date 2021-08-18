@@ -11,6 +11,8 @@ public class Bird : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
+    public event Action ONDied;
+    
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -23,10 +25,10 @@ public class Bird : MonoBehaviour
 
     private void Update()
     {
-        Rotating();
+        Rotate();
     }
 
-    private void Rotating()
+    private void Rotate()
     {
         transform.eulerAngles = new Vector3(0, 0, _rigidbody.velocity.y * _rotateSpeed);
     }
@@ -39,5 +41,19 @@ public class Bird : MonoBehaviour
     private void OnDestroy()
     {
         _clickZone.ONClicked -= Jump;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.GetComponent<Pipe>() != null)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        ONDied?.Invoke();
+        Debug.Log("Dead inside");
     }
 }

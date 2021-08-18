@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 105681592}
   - component: {fileID: 105681596}
   - component: {fileID: 105681595}
+  - component: {fileID: 105681597}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -242,6 +243,7 @@ MonoBehaviour:
   _clickZone: {fileID: 857786254}
   _jumpForce: 5
   _rotateSpeed: 2.5
+  _rigidbody: {fileID: 0}
 --- !u!50 &105681596
 Rigidbody2D:
   serializedVersion: 4
@@ -262,7 +264,23 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 1
+  m_Constraints: 3
+--- !u!58 &105681597
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105681591}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.22
 --- !u!1 &306832386
 GameObject:
   m_ObjectHideFlags: 0
