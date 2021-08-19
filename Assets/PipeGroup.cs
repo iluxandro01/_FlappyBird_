@@ -18,6 +18,6 @@ public class PipeGroup : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(_moveSpeed * Time.deltaTime * (int) _direction, 0, 0);
+        transform.Translate(_moveSpeed * Time.deltaTime *  (int) _direction, 0, 0);
     }
 }
