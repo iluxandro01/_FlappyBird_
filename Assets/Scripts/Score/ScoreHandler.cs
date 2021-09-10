@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class ScoreHandler : MonoBehaviour
 {
@@ -23,8 +22,7 @@ public class ScoreHandler : MonoBehaviour
 
     public void AddPoint()
     {
-        _score += 100;
-        _score += Random.Range(0, 9);
+        _score++;
         ONScoreChanged?.Invoke(_score);
     }
 }

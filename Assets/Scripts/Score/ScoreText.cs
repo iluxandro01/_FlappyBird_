@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +5,6 @@ using UnityEngine;
 public class ScoreText : MonoBehaviour
 {
     private TextMeshProUGUI _textMeshProUGUI;
-    private const string Template = "<sprite index={0:D}>";
 
     private void Awake()
     {
@@ -22,39 +18,12 @@ public class ScoreText : MonoBehaviour
 
     private void UpdateText(int value)
     {
-        var stack = DivideNumbers(value);
-        var resultString = FormatNumbers(stack);
-        
-        _textMeshProUGUI.text = resultString;
+        _textMeshProUGUI.text = TMPFormatter.FormatNumbersToSpriteText(value);
     }
 
     private void OnDestroy()
     {
         ScoreHandler.Instance.ONScoreChanged -= UpdateText;
     }
-
-    private Stack<int> DivideNumbers(int value)
-    {
-        Stack<int> stack = new Stack<int>();
-
-        while (value > 0)
-        {
-            stack.Push(value % 10);
-            value /= 10;
-        }
-
-        return stack;
-    }
-
-    private string FormatNumbers(Stack<int> numbers)
-    {
-        StringBuilder resultStringBuilder = new StringBuilder();
-
-        foreach (var number in numbers)
-        {
-            resultStringBuilder.AppendFormat(Template, number);
-        }
-
-        return resultStringBuilder.ToString();
-    }
 }
+    
