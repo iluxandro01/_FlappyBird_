@@ -6,14 +6,20 @@ using UnityEngine;
 public class Bird : MonoBehaviour
 {
     [SerializeField] private ClickZone _clickZone;
-    [SerializeField] private GameCycle _gameCycle;
-
+    
+    [Space(10)]
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _rotateSpeed;
-
+    
+    [Space(10)]
+    [SerializeField] private AudioSource _jumpSound;
+    [SerializeField] private AudioSource _hitSound;
+    [SerializeField] private AudioSource _dieSound;
+    
     private Rigidbody2D _rigidbody;
+    
     private Animator _animator;
-    private static readonly int StartGameAnimate = Animator.StringToHash("FlyingBird");
+    private static readonly int StartGameAnimationState = Animator.StringToHash("FlyingBird");
 
     public event Action ONDied;
 
@@ -25,13 +31,12 @@ public class Bird : MonoBehaviour
 
     private void Start()
     {
-        _gameCycle.ONStartGame += OnStartGame;
         _clickZone.ONClicked += Jump;
     }
 
-    private void OnStartGame()
+    public void OnStartGame()
     {
-        _animator.Play(StartGameAnimate);
+        _animator.Play(StartGameAnimationState);
         _rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
         _animator.applyRootMotion = true;
     }
@@ -49,24 +54,23 @@ public class Bird : MonoBehaviour
     private void Jump()
     {
         _rigidbody.velocity = Vector2.up * _jumpForce;
+        _jumpSound.Play();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.GetComponent<Pipe>() != null)
-        {
-            Die();
-        }
+        Die();
     }
 
     private void Die()
     {
         ONDied?.Invoke();
+        _hitSound.Play();
+        _dieSound.Play();
     }
 
     private void OnDestroy()
     {
         _clickZone.ONClicked -= Jump;
-        _gameCycle.ONStartGame -= OnStartGame;
     }
 }

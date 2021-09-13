@@ -9,4 +9,9 @@ public class PipeGroupFactory : MonoBehaviour
     {
         return Instantiate(_pipeGroup, _container);
     }
+
+    public void SetPipeGroup(PipeGroup pipeGroup)
+    {
+        _pipeGroup = pipeGroup;
+    }
 }

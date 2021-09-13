@@ -4,8 +4,7 @@ using UnityEngine;
 public class Pauser : MonoBehaviour
 {
     private bool _isPaused;
-
-    public Action<bool> ONStatePauseChanged;
+    public event Action<bool> ONStatePauseChanged;
     
     public void ChangeState()
     {

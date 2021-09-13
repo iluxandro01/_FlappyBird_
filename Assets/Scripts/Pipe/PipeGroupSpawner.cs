@@ -6,18 +6,10 @@ public class PipeGroupSpawner : MonoBehaviour
 {
     [SerializeField] private PipeGroupFactory _pipeGroupFactory;
     [SerializeField] private Transform _spawnPoint;
-
     [SerializeField] private float _spawnRate;
     [Range(0, 5)] [SerializeField] private float _maxShiftY;
     
-    [Space(10)] [SerializeField] private GameCycle _gameCycle;
-
-    private void Start()
-    {
-        _gameCycle.ONStartGame += StartSpawner;
-    }
-
-    private void StartSpawner()
+    public void StartSpawner()
     {
         StartCoroutine(SpawnRoutine());
     }
@@ -34,18 +26,13 @@ public class PipeGroupSpawner : MonoBehaviour
     private void Spawn()
     {
         var pipeGroup = _pipeGroupFactory.Create();
-        var spawnPosition = new Vector2(_spawnPoint.position.x, _spawnPoint.position.y + GetShiftY());
         
+        var spawnPosition = new Vector2(_spawnPoint.position.x, _spawnPoint.position.y + GetShiftY());
         pipeGroup.transform.position = spawnPosition;
     }
 
     private float GetShiftY()
     {
         return -Random.Range(0, _maxShiftY);
-    }
-
-    private void OnDestroy()
-    {
-        _gameCycle.ONStartGame -= StartSpawner;
     }
 }

@@ -6,8 +6,14 @@ public static class TMPFormatter
 {
     public static String FormatNumbersToSpriteText(int value, string template = "<sprite index={0:D}>")
     {
+        if (value == 0)
+        {
+            return String.Format(template, 0);
+        }
+        
         var stack = DivideNumbers(value);
         var resultString = FormatNumbers(stack, template);
+        
         return resultString;
     }
 

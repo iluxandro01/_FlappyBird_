@@ -1,6 +1,6 @@
 using UnityEngine;
 
-enum Direction
+internal enum Direction
 {
     Left = -1,
     Right = 1

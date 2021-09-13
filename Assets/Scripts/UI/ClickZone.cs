@@ -12,9 +12,9 @@ public class ClickZone : MonoBehaviour, IPointerClickHandler
         _pauser.ONStatePauseChanged += SetActive;
     }
 
-    private void SetActive(bool isActive)
+    private void SetActive(bool isPaused)
     {
-        gameObject.SetActive(!isActive);
+        gameObject.SetActive(!isPaused);
     }
 
     public void OnPointerClick(PointerEventData eventData)
