@@ -12,9 +12,13 @@ public class LightDay
 public class LightDayChanger : MonoBehaviour
 {
     [SerializeField] private int _timeToSwap;
-    [Space(10)] [SerializeField] private PipeGroupFactory _pipeGroupFactory;
+    
+    [Space(10)] 
+    [SerializeField] private PipeGroupFactory _pipeGroupFactory;
     [SerializeField] private SpriteRenderer _backGround;
-    [Space(10)] [SerializeField] private LightDay _morning;
+    
+    [Space(10)] 
+    [SerializeField] private LightDay _morning;
     [SerializeField] private LightDay _night;
 
     private LightDay _currentLightDay;

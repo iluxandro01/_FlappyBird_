@@ -15,14 +15,20 @@ public class Medal
 public class GameOver : MonoBehaviour
 {
     [SerializeField] private Medal[] _medals;
-    [Space(10)] [SerializeField] private TextMeshProUGUI _score;
-    [Space(10)] [SerializeField] private TextMeshProUGUI _bestScore;
+    
+    [Space(10)] 
+    [SerializeField] private TextMeshProUGUI _score;
+    
+    [Space(10)] 
+    [SerializeField] private TextMeshProUGUI _bestScore;
     [SerializeField] private GameObject _newBestScoreLabel;
 
-    [Space(10)] [SerializeField] private Fader _fader;
+    [Space(10)] 
+    [SerializeField] private Fader _fader;
     [SerializeField] private Pauser _pauser;
 
-    [Space(10)] [SerializeField] private Bird _bird;
+    [Space(10)] 
+    [SerializeField] private Bird _bird;
 
     private void Start()
     {
