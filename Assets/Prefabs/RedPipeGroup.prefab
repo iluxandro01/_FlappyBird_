@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 7591040018001575301}
   - component: {fileID: 7591040018001575296}
   - component: {fileID: 7591040018001575299}
-  - component: {fileID: 7591040018001575298}
   m_Layer: 0
   m_Name: PipeDown
   m_TagString: Untagged
@@ -228,18 +227,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.04, y: 6.4}
   m_EdgeRadius: 0
---- !u!114 &7591040018001575298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7591040018001575300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c93f12cbcc150948b42e1b425835f78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7591040018103810484
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +238,6 @@ GameObject:
   - component: {fileID: 7591040018103810485}
   - component: {fileID: 7591040018103810480}
   - component: {fileID: 7591040018103810483}
-  - component: {fileID: 7591040018103810482}
   m_Layer: 0
   m_Name: PipeUp
   m_TagString: Untagged
@@ -350,15 +336,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.04, y: 6.4}
   m_EdgeRadius: 0
---- !u!114 &7591040018103810482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7591040018103810484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c93f12cbcc150948b42e1b425835f78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
