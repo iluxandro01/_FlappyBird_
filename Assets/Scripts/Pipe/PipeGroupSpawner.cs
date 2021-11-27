@@ -6,9 +6,9 @@ public class PipeGroupSpawner : MonoBehaviour
 {
     [SerializeField] private PipeGroupFactory _pipeGroupFactory;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private float _spawnRate;
+    [SerializeField] private float _spawnRate; 
     [Range(0, 5)] [SerializeField] private float _maxShiftY;
-    
+
     public void StartSpawner()
     {
         StartCoroutine(SpawnRoutine());
@@ -26,9 +26,16 @@ public class PipeGroupSpawner : MonoBehaviour
     private void Spawn()
     {
         var pipeGroup = _pipeGroupFactory.Create();
-        
-        var spawnPosition = new Vector2(_spawnPoint.position.x, _spawnPoint.position.y + GetShiftY());
-        pipeGroup.transform.position = spawnPosition;
+
+        SetSpawnPosition(pipeGroup);
+    }
+
+    private void SetSpawnPosition(PipeGroup pipeGroup)
+    {
+        var pointPosition = _spawnPoint.position;
+        var shiftedSpawnPosition = new Vector2(pointPosition.x, pointPosition.y + GetShiftY());
+
+        pipeGroup.transform.position = shiftedSpawnPosition;
     }
 
     private float GetShiftY()

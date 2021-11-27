@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20fbd4ba93a07b84e9fae3d236d887d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scoreTrigger: {fileID: 1868951360746895779}
   _moveSpeed: 1
   _direction: -1
 --- !u!1 &7591040018001575300

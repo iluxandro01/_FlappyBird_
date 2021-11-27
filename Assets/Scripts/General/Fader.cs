@@ -10,7 +10,7 @@ public class Fader : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
     }
-    
+
     public void FadeIn(float duration = 0.25f)
     {
         StartCoroutine(Fade(1, 0, duration));
@@ -28,12 +28,12 @@ public class Fader : MonoBehaviour
         while (elapsedTime < duration)
         {
             float normalizedTime = elapsedTime / duration;
-            
+
             _canvasGroup.alpha = Mathf.Lerp(startValue, endValue, normalizedTime);
 
             var deltaTime = useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
             elapsedTime += deltaTime;
-            
+
             yield return null;
         }
 

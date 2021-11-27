@@ -1,6 +1,6 @@
 using UnityEngine;
 
-internal enum Direction
+public enum Direction
 {
     Left = -1,
     Right = 1
@@ -8,9 +8,15 @@ internal enum Direction
 
 public class PipeGroup : MonoBehaviour
 {
+    [SerializeField] private ScoreTrigger _scoreTrigger;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Direction _direction;
 
+    public void Init(ScoreHandler scoreHandler)
+    {
+        _scoreTrigger.Init(scoreHandler);
+    }
+    
     private void Update()
     {
         Move();

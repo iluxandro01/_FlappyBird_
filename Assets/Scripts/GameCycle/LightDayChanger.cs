@@ -5,25 +5,26 @@ using UnityEngine;
 [Serializable]
 public class LightDay
 {
-    public PipeGroup _pipeGroup;
-    public Sprite _backGround;
+    [SerializeField] private PipeGroup _pipeGroup;
+    [SerializeField] private Sprite _backGround;
+    
+    public PipeGroup PipeGroup => _pipeGroup;
+    public Sprite BackGround => _backGround;
 }
 
 public class LightDayChanger : MonoBehaviour
 {
     [SerializeField] private int _timeToSwap;
-    
     [Space(10)] 
     [SerializeField] private PipeGroupFactory _pipeGroupFactory;
     [SerializeField] private SpriteRenderer _backGround;
-    
     [Space(10)] 
     [SerializeField] private LightDay _morning;
     [SerializeField] private LightDay _night;
 
     private LightDay _currentLightDay;
 
-    private void Start()
+    public void StartTimer()
     {
         StartCoroutine(Timer());
     }
@@ -47,8 +48,7 @@ public class LightDayChanger : MonoBehaviour
     private void SetLightDay()
     {
         ChangeLightDay();
-        _pipeGroupFactory.SetPipeGroup(_currentLightDay._pipeGroup);
-        _backGround.sprite = _currentLightDay._backGround;
+        ChangeSettings();
     }
 
     private void ChangeLightDay()
@@ -61,5 +61,11 @@ public class LightDayChanger : MonoBehaviour
         {
             _currentLightDay = _morning;
         }
+    }
+
+    private void ChangeSettings()
+    {
+        _pipeGroupFactory.SetPipeGroup(_currentLightDay.PipeGroup);
+        _backGround.sprite = _currentLightDay.BackGround;
     }
 }

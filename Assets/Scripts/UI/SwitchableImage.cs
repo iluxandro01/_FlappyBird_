@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class SwitchImage : MonoBehaviour
+public class SwitchableImage : MonoBehaviour
 {
     [SerializeField] private Sprite _initialSprite;
     [SerializeField] private Sprite _toSwitchSprite;

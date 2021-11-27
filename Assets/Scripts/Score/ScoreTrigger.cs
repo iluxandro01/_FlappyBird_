@@ -2,11 +2,18 @@ using UnityEngine;
 
 public class ScoreTrigger : MonoBehaviour
 {
+    private ScoreHandler _scoreHandler;
+
+    public void Init(ScoreHandler scoreHandler)
+    {
+        _scoreHandler = scoreHandler;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<Bird>(out var bird))
+        if (other.GetComponent<Bird>() != null)
         {
-            ScoreHandler.Instance.AddPoint();
+            _scoreHandler.AddPoint();
         }
     }
 }
